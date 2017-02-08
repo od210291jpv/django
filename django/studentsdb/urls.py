@@ -41,7 +41,7 @@ urlpatterns = [
     url(r'^test/$', 'studentsdb.students.views.test', name='test'),
     # Attendance URL
     url(r'^attendance/$', 'studentsdb.students.views.attendance', name='attendance'),
-    url(r'^translate/blog/$', 'translator.views.blog', name='start'),
+    # url(r'^translate/blog/$', 'translator.views.blog', name='start'),
 
 ]
 if DEBUG:
