@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% load static from staticfiles %}
+{% block meta_title %} Students {% endblock meta_title %}
+{% block title %} Students database {% endblock title %}
+
+<!--{% block subheader %}-->
+<!--start SubHeader-->
+            <!--<div class="row" id="SubHeader">-->
+                <!--<div class="col-xs-12">-->
+                    <!--<ul class="nav nav-tabs" role="tablist">-->
+                        <!--<li role="presentation" class="active" ><a href='{% url "home" %}'>Students</a></li>-->
+                        <!--<li role="presentation"><a href='#'>Attendance</a></li>-->
+                        <!--<li role="presentation"><a href='{% url "groups" %}'>Groups</a></li>-->
+                    <!--</ul>-->
+                <!--</div>-->
+            <!--</div>-->
+<!--{% endblock subheader %}-->
+
+                    {% block content %}
+                    <!--Add student button-->
+                    <a class="btn btn-primary" href="/students/add">Add a student</a>
+
+                    <!--<div>-->
+                        <!--start students listing-->
+                        <table class="table table-hover table-striped">
+                            <thead>
+                                <tr>
+                                    <th>№</th>
+                                    <th>Photo</th>
+                                    <th><a href="{% url 'home' %}?order_by=last_name{% if request.GET.order_by == 'last_name' and request.GET.reverse != '1' %}&amp;reverse=1{% endif %}"> Suranme {% if request.GET.order_by == 'last_name' and request.GET.reverse != '1' %} &uarr;
+                                        {% elif request.GET.order_by == 'last_name' and request.GET.reverse == '1' %} &darr;
+                                        {% endif %} </a></th>
+                                    <th><a href="{% url 'home' %}?order_by=last_name">Name{% if request.GET.order_by == 'last_name' %} &uarr; {% endif %}</a></th>
+                                    <th><a href="{% url 'home' %}?order_by=ticket">№ of ticket{% if request.GET.order_by == 'ticket' %} &uarr; {% endif %}</a></th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {% for student in students %}
+                                <tr>
+                                    <td>{{ forloop.counter }}</td><!--default django var, gives number of iteration-->
+                                    {% if student.photo %}
+                                    <td><img height="30" width="30" src="{{ student.photo.url }}" class="img-circle"></td>
+                                    {% else %}
+                                    <td><img class="img-circle" height="30" width="30" src="{% static "img/default.png" %}"></td>
+                                    {% endif %}
+                                    <td><a title="Edit" href='{% url "student_edit" student.id %}'>{{ student.last_name }}</a></td>
+                                    <td><a title="Edit" href='{% url "student_edit" student.id %}'>{{ student.first_name }}</a></td>
+                                    <td>{{ student.ticket }}</td>
+                                    <td>
+                                        <div class="btn-group">
+                                          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Action
+                                              <span class="caret"></span>
+                                          </button>
+                                            <ul class="dropdown-menu" role="menu">
+                                                <li><a href='{% url "student_edit" student.id %}'>Edit</a></li>
+                                                <li><a href='/attendance/{{ student.id }}'>Attendabce</a></li>
+                                                <li><a href='{% url "student_delete" student.id %}'>Delete</a></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+
+                        </table>
+                    {% if students.has_other_pages %}
+                    <nav>
+                        <ul class="pagination">
+                            <li><a href="{% url "home" %}?page=1">&laquo;</a></li>
+                            {% for p in students.paginator.page_range %}
+                            <li{% if students.number == p %} class="active" {% endif %}>
+                                <a href="{% url "home" %}?page={{ p }}"> {{ p }} </a></li> {% endfor %}
+                            <li><a href="{% url "home" %}?page={{ students.paginator.num_pages }}">&raquo;</a></li>
+                        </ul>
+                    </nav>
+                    {% endif %}
+                    {% endblock content %}
+
+                    <!--</div>-->
+
+            <!--end main page content-->
+
+            <!--start footer-->
+            <div class="row" id="footer">
+                <div class="col-xs-12">
+                    &copy; Students Accounting Service
+                </div>
+            </div>
+            <!--end footer-->
+
+
+        <!--end container-->
+
+        <!--Javascript section-->
+            <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+        <!--</script>-->

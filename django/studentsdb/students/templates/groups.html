@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% load static from staticfiles %}
+{% block meta_title %}Groups{% endblock meta_title %}
+{% block title %}Group management {% endblock title %}
+                    {% block content %}
+                    <!--Add student button-->
+                    <a class="btn btn-primary" href='{% url "add_group" %}'>Add a group</a>
+
+                    <!--<div>-->
+                        <!--start students listing-->
+                        <table class="table table-hover table-striped">
+                            <thead>
+                                <tr>
+                                    <th>№</th>
+                                    <th><a href="#">Name &uarr;</a></th>
+                                    <th>Group director </th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {% for group in groups %}
+                                <tr>
+                                    <td>{{ forloop.counter }}</td>
+                                    <td><a title="Edit" href='{% url "edit_group" group.id %}'>{{ group.title }}</a></td>
+                                    <td><a title="Edit" href='{% url "edit_group" group.id %}'>{{ group.leader }}</a></td>
+                                    <td>
+                                        <div class="btn-group">
+                                          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Action
+                                              <span class="caret"></span>
+                                          </button>
+                                            <ul class="dropdown-menu" role="menu">
+                                                <li><a href='{% url "edit_group" group.id %}'>Edit</a></li>
+                                                <li><a href="#">Attendabce</a></li>
+                                                <li><a href='{% url "delete_group" group.id %}'>Delete</a></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+
+                        </table>
+                    <nav>
+                        <ul class="pagination">
+                            <li><a href="#">&laquo;</a></li>
+                            <li><a href="#">1</a></li>
+                            <li><a href="#" class="active">2</a></li>
+                            <li><a href="#">&raquo;</a></li>
+                        </ul>
+                    </nav>
+                    {% endblock content %}
+                    <!--</div>-->
+
+            <!--end main page content-->
+
+            <!--start footer-->
+            <div class="row" id="footer">
+                <div class="col-xs-12">
+                    &copy; Students Accounting Service
+                </div>
+            </div>
+            <!--end footer-->
+
+
+        <!--end container-->
+
+        <!--Javascript section-->
+            <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+        <!--</script>-->

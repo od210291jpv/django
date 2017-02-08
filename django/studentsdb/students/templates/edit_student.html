@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Clear template</title>
+    <meta name="description" value="meta data">
+    <!--include styles -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bootstrap/3.3.0/css/bootstrap.min.css">
+    <!--<link rel="stylesheet" href="./css/main.css">-->
+    <style type="text/css"> #decline {margin-left:10px;}</style>
+    <!--<style type="text/css">.col-xs-12, .col-xs-4, .col-xs-8, .col-xs-2, .col-xs-6, .col-xs-1 {border:1px solid red;}</style>-->
+</head>
+<body>
+    <!--start container-->
+    <div class="container">
+        <!--start header-->
+        <div class="row" id="header">
+            <!--logo-->
+            <div class="col-xs-4">
+                <h1> Edit Student </h1>
+            </div>
+        </div>
+        <!--<div class="row" id="SubHeader">-->
+            <!--<div class="col-xs-2"> 1 </div>-->
+            <!--<div class="col-xs-2"> 2 </div>-->
+            <!--<div class="col-xs-2"> 3 </div>-->
+            <!--<div class="col-xs-2"> 4 </div>-->
+            <!--<div class="col-xs-2"> 5 </div>-->
+            <!--<div class="col-xs-2"> 6 </div>-->
+        <!--</div>-->
+        <div class="row" id="content-columns">
+            <div class="col-xs-2">
+                <form action="#">
+                    <div><strong>Name*</strong> <input type="text" class="form-control" aria-label="..."></div>
+                    <div><strong>Second Name*</strong><input type="text" class="form-control" aria-label="..."></div>
+                    <div><strong>Surname*</strong><input type="text" class="form-control" aria-label="..."></div>
+                    <div><strong>Ticket №</strong><input type="text" class="form-control" aria-label="..."></div>
+                    <div><strong>Birth date</strong><input type="text" class="form-control" aria-label="..."></div>
+                    <div><strong>Photo</strong><input type="text" class="form-control" aria-label="..."></div>
+                    <div><strong>Group*</strong><input type="text" class="form-control" aria-label="..."></div>
+                    <div><strong>Notes</strong><textarea rows="4"></textarea></div>
+                    <div><button type="submit" class="btn btn-primary">Submit</button><a href="#" id="decline"> Decline</a></div>
+                </form>
+            </div>
+        </div>
+        <div class="row" id="footer">
+            <div class="col-xs-4"> &copy; Students Accounting Service</div>
+        </div>
+    </div>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+</body>
+</html>

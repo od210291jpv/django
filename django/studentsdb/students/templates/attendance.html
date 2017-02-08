@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+{% load static from staticfiles %}
+{% block meta_title %}Attendance{% endblock meta_title %}
+{% block title %}Attendance accounting{% endblock title %}
+
+        </div>
+        <!--start main body content-->
+
+
+                {% block content %}
+                <!--Start month-->
+                <div><h5 id="month"><a href="#">&larr;</a>
+                    <strong>{{ month }}</strong>
+                <a href="#">&rarr;</a></h5></div>
+                <!--End month-->
+                <table class="table table-hover table-striped">
+                    <thead>
+                        <tr>
+                            <th>№</th>
+                            <th>Student</th>
+                            <th>ср 1</th>
+                            <th>чт 2</th>
+                            <th>пт 3</th>
+                            <th>сб 4</th>
+                            <th>вс 5</th>
+                            <th>пн 6</th>
+                            <th>вт 7</th>
+                            <th>ср 8</th>
+                            <th>чт 9</th>
+                            <th>пт 10</th>
+                            <th>сб 11</th>
+                            <th>вс 12</th>
+                            <th>пн 13</th>
+                            <th>вт 14</th>
+                            <th>ср 15</th>
+                            <th>чт 16</th>
+                            <th>пт 17</th>
+                            <th>сб 18</th>
+                            <th>вс 19</th>
+                            <th>пн 20</th>
+                            <th>вт 21</th>
+                            <th>ср 22</th>
+                            <th>чт 23</th>
+                            <th>пт 24</th>
+                            <th>сб 25</th>
+                            <th>вс 26</th>
+                            <th>пн 27</th>
+                            <th>вт 28</th>
+                            <th>ср 29</th>
+                            <th>чт 30</th>
+                            <th>пт 31</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for student in students %}
+                        <tr>
+                            <td>{{ student.id }}</td>
+                            <td><a href="#">{{student.first_name}} {{student.last_name}}</a></td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                        {% endfor %}
+
+                    </tbody>
+                </table>
+                {% endblock content %}
+        </div>
+        <div class="row" id="footer">
+            <div class="col-xs-12"> &copy; Students Accounting Service </div>
+        </div>
+    </div>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+</body>
+</html>

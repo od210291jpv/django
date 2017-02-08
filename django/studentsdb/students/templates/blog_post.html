@@ -1,0 +1,19 @@
+{% extends "base_blog.html" %}
+
+{% load static from staticfiles %}
+{% block meta_title %}{% endblock meta_title %}
+{% block title %} Translator yo!! {% endblock title %}
+{% block content %}
+
+{% for content in posts %}
+
+<h2 align="center"> {{content.header}} </h2>
+<strong><div align="center">{{content.topic}}</div></strong>
+<div>  </div>
+<div align="center">{{content.body}}</div>
+<hr>
+
+
+{% endfor %}
+
+{% endblock content %}
